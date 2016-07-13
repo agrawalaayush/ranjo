@@ -1,0 +1,23 @@
+{% extends 'student/base.html' %}
+{% block title %}Hobby{% endblock title %}
+{% block body %}
+<p style='display: none;'>"Hie Aayush!! Awesome to meet you."</p>
+<div id='login_div'>
+<form action='{% url 'hobby' %}{{roll_no}}/' method='post'>
+{% csrf_token %}
+<!--Username: <input type='text' maxlength="20" name='username'><br>
+Password: <input type="password" name="password"><br>-->
+            <!--{% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}-->
+            {{form}}
+<input type='submit' value='Add Hobby' >
+</form>
+</div>
+{% endblock body %}

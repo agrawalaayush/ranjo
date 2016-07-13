@@ -1,0 +1,31 @@
+<html>
+<head>
+{% load staticfiles %}
+<title>{% block title %} {% endblock title %}</title>
+<link href="{% static "Ranjo/css/bootstrap.min.css" %}" rel="stylesheet">
+<link href="{% static "student/css/common.css" %}" rel="stylesheet">
+
+</head>
+<body>
+	<div class='container'>
+	{% block body %}
+		<p style='display: none;'>"Hie Aayush!! Awesome to meet you."</p>
+		<div id='login_div'>
+			<form action='{% url 'login' %}' method='post'>
+				{% csrf_token %}
+				<!--Username: <input type='text' maxlength="20" name='username'><br>
+				Password: <input type="password" name="password"><br>-->
+				{{form}}
+				<input type='submit' value='Login' >
+			</form>
+			<a href = '{% url 'register' %}'>Register! here</a>
+		</div>
+	{% endblock body %}
+	</div>
+<script src="{% static "Ranjo/js/jquery.min.js" %}"></script>
+<script src="{% static "Ranjo/js/bootstrap.min.js" %}"></script>
+{% block script %}
+{% endblock script %}
+</body>
+
+</html>

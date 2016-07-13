@@ -1,0 +1,16 @@
+{% extends 'student/base.html' %}
+{% block title %}Profile{% endblock title %}
+{% block body %}
+<div id='login_div'>
+<img src='../../media/{{dp}}' alt="Profile Image" height="42" width="42">
+{% for hobby in hobbies %}
+<li> {{hobby.name}} </li>
+<li> {{hobby.roll_no}} </li>
+<a href='{% url 'hobby' %}{{hobby.roll_no}}/'>Add hobby</a>
+{% empty %}
+<li>No Hobby </li>
+{% endfor %}
+<a href='{% url 'logout' %}'>Logout</a>
+<a href='{% url 'aboutus' %}'>About Us</a>
+</div>
+{% endblock body %}
