@@ -41,6 +41,30 @@
 	box-shadow:         10px 7px 14px 0px rgba(47, 50, 52, 0.85)
 
 }
+#oval_parent{
+    
+    width:100%;
+    height:300px;
+    overflow:hidden;
+    position: relative;
+}
+
+#oval{
+	position: absolute;
+	bottom: 30%;
+	left:35%;
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 100px / 50px;
+    -moz-border-radius: 100px / 50px;
+    border-radius: 100px / 90px;
+    background-image:url('{% static "Ranjo/img/index.jpg" %}');
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+#body_section{
+	margin-top: 20px;
+}
 </style>
 </head>
 <body>
@@ -61,27 +85,37 @@
 		<section id='body_section'>
 			<div class='row'>
 				<div class='col-md-8'>
-					<p>Aayush</p>
+					<h1>Introduction</h1>
+					<p>We are solution to all your problem.</p>
+					<ul>
+					Steps that we follow:
+						<li>Listen</li>
+						<li>Visualize</li>
+						<li>Idea Making</li>
+						<li>Solution Provide</li>
+					</ul>
 				</div>
 				<div class='col-md-4'>
-					<p>Agrawal</p>
+					<div id='oval_parent'>
+						<div id='oval'>
+						</div>
+					</div>
 				</div>
 			</div>
+			
 		</section>
 		<section id='footer_section'>
 			<div class='row'>
 				<div class='col-md-4'>
-					<p>Aayush</p>
 				</div>
 				<div class='col-md-4'>
 					<ul>
-						<li><a class='ci_white'> Facebook </a></li>
-						<li><a class='ci_white'> Twitter </a></li>
-						<li><a class='ci_white'> LinkedIn </a></li>
+						<li><a class='ci_white' href='https://www.facebook.com/aayush.agrawal.7967' target='_blank'> Facebook </a></li>
+						<li><a class='ci_white' href='https://twitter.com/' target='_blank'> Twitter </a></li>
+						<li><a class='ci_white' href='https://in.linkedin.com/in/aayush-agrawal-23a31099' target='_blank'> LinkedIn </a></li>
 					</ul>
 				</div>
 				<div class='col-md-4'>
-					<p>Aayush Agrawal</p>
 				</div>
 			</div>
 		</section>

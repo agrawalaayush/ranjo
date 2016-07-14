@@ -58,14 +58,13 @@ class LoginView(View):
             username = request.POST.get('username')
             password = request.POST.get('password')
             auths = authenticate(username=username,password=password)
-            print auths.id
             if auths:
                 if auths.is_active:
                     login(request,auths)
                     request.session['user_id'] = auths.id
                     return HttpResponseRedirect(reverse('profile')+"?user="+username)
                 return HttpResponse('Non Active User')
-        return HttpResponse('Bad User')
+        return render(request,'student/login.html',{'form':form,'context':'Oops!! Wrong username or password'})
 
 class ProfileView(View):
     def get(self,request):
@@ -110,7 +109,7 @@ def About(request):
 
 def Logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('login'))
+    return HttpResponseRedirect(reverse('home'))
 
 class SearchView(View):
     

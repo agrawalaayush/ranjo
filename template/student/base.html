@@ -4,10 +4,86 @@
 <title>{% block title %} {% endblock title %}</title>
 <link href="{% static "Ranjo/css/bootstrap.min.css" %}" rel="stylesheet">
 <link href="{% static "student/css/common.css" %}" rel="stylesheet">
+<style>
+.ci_inline{
+	display: inline;
+	color: #fff !important;
+}
+.navigation{
 
+	background-color: #3b5998;
+	-webkit-box-shadow: 10px 7px 14px 0px rgba(47, 50, 52, 0.85);
+    -moz-box-shadow:    10px 7px 14px 0px rgba(47, 50, 52, 0.85);
+	box-shadow:         10px 7px 14px 0px rgba(47, 50, 52, 0.85)
+}
+.ci_white{
+	color: #fff;
+}
+.small{
+	height: 100%;
+}
+.ci_navigate{
+	position: relative;
+	left:25%;
+}
+.container{
+	position: relative;
+	height:100%;
+	margin-top: 10px;
+}
+#footer_section{
+	position:absolute; 
+	bottom: 25px; 
+	width: 100%;
+	background-color: #3b5998;
+	-webkit-box-shadow: 10px 7px 14px 0px rgba(47, 50, 52, 0.85);
+    -moz-box-shadow:    10px 7px 14px 0px rgba(47, 50, 52, 0.85);
+	box-shadow:         10px 7px 14px 0px rgba(47, 50, 52, 0.85)
+
+}
+#oval_parent{
+    
+    width:100%;
+    height:300px;
+    overflow:hidden;
+    position: relative;
+}
+
+#oval{
+	position: absolute;
+	bottom: 30%;
+	left:35%;
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 100px / 50px;
+    -moz-border-radius: 100px / 50px;
+    border-radius: 100px / 90px;
+    background-image:url('{% static "Ranjo/img/index.jpg" %}');
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+#body_section{
+	margin-top: 20px;
+}
+</style>
+{% block style %}
+{% endblock style %}
 </head>
 <body>
 	<div class='container'>
+	<div class='row navigation'>
+			<div class='col-md-3 col-md-offset-9'>
+			<ul class='ci_navigate'>
+				{% if user.is_authenticated %}
+				<li class='ci_inline'><a class='ci_white' href="{% url 'profile' %}">MyInfo</a></li><small class='ci_white'>|</small>
+				<li class='ci_inline'><a class='ci_white' href="{% url 'logout' %}">Logout</a></li>
+				{% else %}
+				<li class='ci_inline'><a class='ci_white' href="{% url 'login' %}">Login</a></li><small class='ci_white'>|</small>
+				<li class='ci_inline'><a class='ci_white' href="{% url 'register' %}">Register</a></li>
+				{% endif %}
+			</ul>
+			</div>
+		</div>
 	{% block body %}
 		<p style='display: none;'>"Hie Aayush!! Awesome to meet you."</p>
 		<div id='login_div'>
@@ -21,6 +97,21 @@
 			<a href = '{% url 'register' %}'>Register! here</a>
 		</div>
 	{% endblock body %}
+	<section id='footer_section'>
+			<div class='row'>
+				<div class='col-md-4'>
+				</div>
+				<div class='col-md-4'>
+					<ul>
+						<li><a class='ci_white' href='https://www.facebook.com/aayush.agrawal.7967' target='_blank'> Facebook </a></li>
+						<li><a class='ci_white' href='https://twitter.com/' target='_blank'> Twitter </a></li>
+						<li><a class='ci_white' href='https://in.linkedin.com/in/aayush-agrawal-23a31099' target='_blank'> LinkedIn </a></li>
+					</ul>
+				</div>
+				<div class='col-md-4'>
+				</div>
+			</div>
+	</section>
 	</div>
 <script src="{% static "Ranjo/js/jquery.min.js" %}"></script>
 <script src="{% static "Ranjo/js/bootstrap.min.js" %}"></script>

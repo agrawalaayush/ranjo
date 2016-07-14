@@ -1,15 +1,26 @@
 {% extends 'student/base.html' %}
 {% block title %}Register{% endblock title %}
+{% block style %}
+<style>
+#register{
+	position: absolute;
+	top:150px;
+	left:400px;
+}
+</style>
+{% endblock style %}
 {% block body %}
+<section id='register'>
 {% if not registered %}
-<form id='user_form' method='post' action='{% url 'register' %}' enctype="multipart/form-data">
-{% csrf_token %}
-{{userform.as_p}}
-{{registerform.as_p}}
-<input type="submit" name="submit" value="Register" />
-</form>
 
+	<form id='user_form' method='post' action='{% url 'register' %}' enctype="multipart/form-data">
+		{% csrf_token %}
+		{{userform.as_p}}
+		{{registerform.as_p}}
+		<input type="submit" name="submit" value="Register" />
+	</form>
 {% else %}
-<div>Thank You For registering</div>
+	<div>Thank You For registering</div>
 {% endif %}
+</section>
 {% endblock body %}

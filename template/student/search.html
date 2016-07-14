@@ -1,6 +1,17 @@
 {% extends 'student/base.html' %}
 {% block title %}Search{% endblock title %}
+{% block style %}
+<style>
+#search_section{
+	position: absolute;
+	top:100px;
+	left:300px;
+}
+</style>
+{% endblock style %}
 {% block body %}
+
+<section id='search_section'>
 <div class='row'>
 	<div class='col-md-3'>
 	</div>
@@ -8,8 +19,7 @@
 		<form id='user_form' action="{% url 'search' %}" method='post'>
 		{% csrf_token %}
 			<input type='text' name='query' id='query' value='{{query}}' list='search_list'>
-			
-			<button type='submit' value='Search' class='btn btn-primary' style='height: 25px;width: 50px;'>
+			<input type='submit' value='Search' class='btn btn-primary' style='height: 25px;width: 50px;margin-top: 10px;color:#ffffff;text-align: left;'></input>
 		</form>
 		<datalist id='search_list'></datalist>
 	</div>
@@ -31,6 +41,7 @@
 	</div>
 	
 </div>
+</section>
 {% endblock body %}
 {% block script %}
 <script type="text/javascript">
