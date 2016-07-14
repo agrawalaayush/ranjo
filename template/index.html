@@ -1,0 +1,95 @@
+<html>
+<head>
+{% load staticfiles %}
+<title>{% block title %} {% endblock title %}</title>
+<link href="{% static "Ranjo/css/bootstrap.min.css" %}" rel="stylesheet">
+<link href="{% static "student/css/common.css" %}" rel="stylesheet">
+<style>
+.ci_inline{
+	display: inline;
+	color: #fff !important;
+}
+.navigation{
+
+	background-color: #3b5998;
+	-webkit-box-shadow: 10px 7px 14px 0px rgba(47, 50, 52, 0.85);
+    -moz-box-shadow:    10px 7px 14px 0px rgba(47, 50, 52, 0.85);
+	box-shadow:         10px 7px 14px 0px rgba(47, 50, 52, 0.85)
+}
+.ci_white{
+	color: #fff;
+}
+.small{
+	height: 100%;
+}
+.ci_navigate{
+	position: relative;
+	left:25%;
+}
+.container{
+	position: relative;
+	height:100%;
+	margin-top: 10px;
+}
+#footer_section{
+	position:absolute; 
+	bottom: 25px; 
+	width: 100%;
+	background-color: #3b5998;
+	-webkit-box-shadow: 10px 7px 14px 0px rgba(47, 50, 52, 0.85);
+    -moz-box-shadow:    10px 7px 14px 0px rgba(47, 50, 52, 0.85);
+	box-shadow:         10px 7px 14px 0px rgba(47, 50, 52, 0.85)
+
+}
+</style>
+</head>
+<body>
+	<div class='container'>
+		<div class='row navigation'>
+			<div class='col-md-3 col-md-offset-9'>
+			<ul class='ci_navigate'>
+				{% if user.is_authenticated %}
+				<li class='ci_inline'><a class='ci_white' href="{% url 'profile' %}">MyInfo</a></li><small class='ci_white'>|</small>
+				<li class='ci_inline'><a class='ci_white' href="{% url 'logout' %}">Logout</a></li>
+				{% else %}
+				<li class='ci_inline'><a class='ci_white' href="{% url 'login' %}">Login</a></li><small class='ci_white'>|</small>
+				<li class='ci_inline'><a class='ci_white' href="{% url 'register' %}">Register</a></li>
+				{% endif %}
+			</ul>
+			</div>
+		</div>
+		<section id='body_section'>
+			<div class='row'>
+				<div class='col-md-8'>
+					<p>Aayush</p>
+				</div>
+				<div class='col-md-4'>
+					<p>Agrawal</p>
+				</div>
+			</div>
+		</section>
+		<section id='footer_section'>
+			<div class='row'>
+				<div class='col-md-4'>
+					<p>Aayush</p>
+				</div>
+				<div class='col-md-4'>
+					<ul>
+						<li><a class='ci_white'> Facebook </a></li>
+						<li><a class='ci_white'> Twitter </a></li>
+						<li><a class='ci_white'> LinkedIn </a></li>
+					</ul>
+				</div>
+				<div class='col-md-4'>
+					<p>Aayush Agrawal</p>
+				</div>
+			</div>
+		</section>
+	</div>
+<script src="{% static "Ranjo/js/jquery.min.js" %}"></script>
+<script src="{% static "Ranjo/js/bootstrap.min.js" %}"></script>
+{% block script %}
+{% endblock script %}
+</body>
+
+</html>

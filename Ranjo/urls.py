@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from django.conf.urls import patterns
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from registration.backends.simple.views import RegistrationView
+from student.views import HomeView
 class MyRegistrationView(RegistrationView):
     def get_success_url(self,request, user):
         return '/rango/'
@@ -27,6 +28,7 @@ class MyRegistrationView(RegistrationView):
 urlpatterns = [
     url(r'^student/', include('student.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^home/$',HomeView.as_view(),name='home'),
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
